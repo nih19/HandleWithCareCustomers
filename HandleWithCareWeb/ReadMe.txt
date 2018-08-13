@@ -9,4 +9,4 @@ It also uses DateTimePicker jQuery plugin (https://xdsoft.net/jqplugins/datetime
 
 Full project information can be found here: https://garagehackbox.azurewebsites.net/hackathons/1214/projects/72981
 
-For questions please contact Roxanne Kenison (roxken) or Anton Kaliujin (ankaliuj).
+If you have questions, please contact Roxanne Kenison (roxken) or Anton Kaliujin (ankaliuj).
