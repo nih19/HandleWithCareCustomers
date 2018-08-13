@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title>Handle With Care - Calendar</title>
+
+    <script src="Scripts/jquery-1.9.1.js" type="text/javascript"></script>
+
+    <link href="HandleWithCare.css" rel="stylesheet" type="text/css" />
+    <script src="HandleWithCare.js" type="text/javascript"></script>
+
+    <script type='text/javascript'>
+        $(document).ready(function () {
+            var storeId = $.urlParam('storeId');
+
+            if (storeId) {
+                $('#storeIdInput').val(storeId);
+
+                for (var i = 0; i < storeData.length; i++) {
+                    for (var j = 0; j < storeData[i].stores.length; j++) {
+                        if (storeData[i].stores[j].id === parseInt(storeId)) {
+                            $('#storeTitle').html(storeData[i].stores[j].title);
+                            $('#storeDescription').html(storeData[i].stores[j].description);
+                        }
+                    }
+                }
+            }
+
+            $('#datetimepicker').datetimepicker({
+                inline: true
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <h2 id="storeTitle"></h2>
+        <div id="storeDescription" class="store-description"></div>
+    </div>
+    <form action="PersonalData.html" method="get">
+        <div class="datetimepicker-container">
+            <span>Select date and time of your appointment.</span>
+            <input type="hidden" id="storeIdInput" name="storeId" value="" />
+            <input type="text" id="datetimepicker" name="dateTime" />
+        </div>
+        <div class="common-button-container">
+            <input type="submit" class="common-button" value="Next" />
+        </div>
+    </form>
+</body>
+
+<link href="Scripts/DateTimePicker/jquery.datetimepicker.css" rel="stylesheet" />
+<script src="Scripts/DateTimePicker/build/jquery.datetimepicker.full.min.js"></script>
+</html>

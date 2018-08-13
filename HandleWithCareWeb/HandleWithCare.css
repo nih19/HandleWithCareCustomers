@@ -1,0 +1,138 @@
+﻿html {
+    position: relative;
+    min-height: 100%;
+}
+body {
+    margin: 10px;
+    font-family: wf_segoe-ui_normal,'Segoe UI',Segoe,'Segoe WP',Tahoma,Verdana,Arial,sans-serif;
+    font-size: 14px;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.store-description {
+    font-size: 16px;
+    font-weight: 400;
+    padding-bottom: 10px;
+    border-bottom: solid 1px #e4e4e4;
+    margin-bottom: 10px;
+}
+
+.common-button-container {
+    display: block;
+    margin-top: 50px;
+}
+
+.common-button {
+    background-color: #0078d7;
+    color: #fff;
+    padding: 5px 20px;
+    text-decoration: none;
+    font-size: 1em;
+    display: inline-block;
+    float: right;
+    text-align: center;
+    line-height: 1.5em;
+    border: none;
+}
+
+#myMap {
+    margin-bottom: 20px;
+    width: 100%;
+    height: 50vh;
+}
+
+#stateList {
+    font-size: 15px;
+}
+
+#storeListContainer {
+    margin-top: 20px;
+}
+
+#storeList {
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    border: 1px solid #e4e4e4;
+    list-style-type: none;
+}
+
+#storeList li {
+    padding: 10px;
+    border-bottom: 1px solid #e4e4e4;
+}
+
+#storeList li:last-child {
+    border-bottom: none;
+}
+
+.store-title {
+    font-weight: 700;
+}
+
+.schedule-link {
+    color: #1570a6;
+    text-decoration: none;
+    font-size: 1em;
+    line-height: 1.3em;
+    display: inline-block;
+    text-align: center;
+    border: none;
+}
+
+.schedule-link:visited, .schedule-link:active {
+    color: #1570a6;
+}
+
+.schedule-link:hover {
+    color: #1570a6;
+    text-decoration: underline;
+}
+
+.datetimepicker-container {
+    margin-top: 20px;
+}
+
+.personal-data-field-container {
+    margin: 5px 0 10px 0;
+}
+
+.personal-data-field {
+    width: 100%;
+    font-size: 16px;
+}
+
+.field-title {
+    font-weight: 700;
+}
+
+.footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 40px;
+    width: 100%;
+}
+
+.padding {
+    padding: 15px;
+}
+
+#notification-popup.ms-MessageBanner {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    text-align: left;
+    height: inherit;
+    min-width: inherit;
+}
+
+#notification-popup .ms-MessageBanner-text {
+    margin: 0;
+    padding: 18px 15px;
+    min-width: inherit;
+}

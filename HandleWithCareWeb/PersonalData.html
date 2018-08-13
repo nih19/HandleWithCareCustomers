@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title>Handle With Care - Personal Data</title>
+
+    <script src="Scripts/jquery-1.9.1.js" type="text/javascript"></script>
+
+    <link href="HandleWithCare.css" rel="stylesheet" type="text/css" />
+    <script src="HandleWithCare.js" type="text/javascript"></script>
+
+    <script type='text/javascript'>
+        $(document).ready(function () {
+            var storeId = $.urlParam('storeId');
+            var dateTime = decodeURIComponent($.urlParam('dateTime'));
+
+            if (storeId) {
+                $('#storeIdInput').val(storeId);
+
+                for (var i = 0; i < storeData.length; i++) {
+                    for (var j = 0; j < storeData[i].stores.length; j++) {
+                        if (storeData[i].stores[j].id === parseInt(storeId)) {
+                            $('#storeTitle').html(storeData[i].stores[j].title);
+                            $('#storeDescription').html(storeData[i].stores[j].description);
+                        }
+                    }
+                }
+            }
+
+            if (dateTime) {
+                $('#dateTimeInput').val(dateTime);
+            }
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <h2 id="storeTitle"></h2>
+        <div id="storeDescription" class="store-description"></div>
+    </div>
+    <form action="Confirmation.html" method="get">
+        <input type="hidden" id="storeIdInput" name="storeId" value="" />
+        <input type="hidden" id="dateTimeInput" name="dateTime" value="" />
+        <div>
+            <span>First name</span>
+        </div>
+        <div class="personal-data-field-container">
+            <input type="text" id="firstName" name="firstName" class="personal-data-field" value="Jason" />
+        </div>
+        <div>
+            <span>Last name</span>
+        </div>
+        <div class="personal-data-field-container">
+            <input type="text" id="lastName" name="lastName" class="personal-data-field" value="Doer" />
+        </div>
+        <div>
+            <span>Email</span>
+        </div>
+        <div class="personal-data-field-container">
+            <input type="text" id="email" name="email" class="personal-data-field" value="jdoer@hotmail.com" />
+        </div>
+        <div>
+            <span>Phone number (optional)</span>
+        </div>
+        <div class="personal-data-field-container">
+            <input type="text" id="phoneNumber" name="phoneNumber" class="personal-data-field" value="206-995-3285" />
+        </div>
+        <div class="common-button-container">
+            <input type="submit" class="common-button" value="Next" />
+        </div>
+    </form>
+</body>
+</html>

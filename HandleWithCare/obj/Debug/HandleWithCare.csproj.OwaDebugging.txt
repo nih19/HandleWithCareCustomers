@@ -1,0 +1,7 @@
+False
+df2f3444-4a21-40f2-bb73-03bab747707179be51b3-908d-45f8-afe3-d5c68cd949da
+{5f8e02b1-e7b1-4cf9-b84d-b8703f8f8db2}{98448d96-9229-44d1-9494-61c31cc14117}
+{8b31cf8a-af5c-48ec-a365-3bac04080449}
+1.0.0.0
+HandleWithCare
+_layouts/15/

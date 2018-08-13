@@ -1,0 +1,2 @@
+bin\Debug\OfficeAppManifests\HandleWithCareManifest.xml
+D:\Source\Repos\Hackathon2018\HandleWithCare\HandleWithCare\bin\Debug\HandleWithCare.debugapp

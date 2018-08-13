@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title>Handle With Care - Home</title>
+
+    <script src="Scripts/jquery-1.9.1.js" type="text/javascript"></script>
+
+    <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol'></script>
+
+    <link href="HandleWithCare.css" rel="stylesheet" type="text/css" />
+    <script src="HandleWithCare.js" type="text/javascript"></script>
+
+    <script type='text/javascript'>
+        var pinInfobox;
+
+        var apiKey = "AlfuN19Q15ip-9iDKpDbc7flP3fKC27t9j88vIkRq-majvto7wRneRIF3p9OqXJp";
+
+        function loadMapScenario() {
+            var infoboxLayer = [];
+            var pinLayer = [];
+
+            var map = new Microsoft.Maps.Map(document.getElementById('myMap'), { credentials: apiKey, showMapTypeSelector: false });
+
+            // Create the info box for the pushpin
+            pinInfobox = new Microsoft.Maps.Infobox(new Microsoft.Maps.Location(0, 0), { visible: false });
+            infoboxLayer.push(pinInfobox);
+
+            for (var i = 0; i < storeData.length; i++) {
+                $('#stateList').append($('<option>', { value: storeData[i].state, text: storeData[i].state }));
+            }
+
+            $('#stateList').change(function () {
+                for (var i = 0; i < storeData.length; i++) {
+                    if (storeData[i].state == this.value) {
+                        var locs = [];
+
+                        $('#storeList').empty();
+
+                        for (var j = 0; j < storeData[i].stores.length; j++) {
+                            locs[j] = new Microsoft.Maps.Location(storeData[i].stores[j].lat, storeData[i].stores[j].lng);
+                            var pin = new Microsoft.Maps.Pushpin(locs[j]);
+                            pin.Title = storeData[i].stores[j].title;
+                            pin.Description = storeData[i].stores[j].description;
+                            pinLayer.push(pin);
+                            Microsoft.Maps.Events.addHandler(pin, 'click', displayInfobox);
+
+                            $('#storeList').append('<li><div class="store-title"><span>' + storeData[i].stores[j].title + '</span></div>' +
+                                '<div><span>' + storeData[i].stores[j].description + '</span></div>' +
+                                '<div><a href="' + storeData[i].stores[j].url + '" class="schedule-link">Schedule on site ></a>&nbsp;&nbsp;&nbsp;&nbsp;' +
+                                '<a href="Calendar.html?storeId=' + storeData[i].stores[j].id + '" class="schedule-link">Schedule in app ></a></div ></li > ');
+                        }
+
+                        map.entities.push(pinLayer);
+                        map.entities.push(infoboxLayer);
+
+                        var bestview = Microsoft.Maps.LocationRect.fromLocations(locs);
+                        map.setView({ center: bestview.center, zoom: 10 });
+                    }
+                }
+            });
+        }
+
+        function displayInfobox(e) {
+            if (e.target) {
+                pinInfobox.setOptions({
+                    location: e.target.getLocation(),
+                    title: e.target.Title,
+                    description: e.target.Description,
+                    visible: true,
+                    offset: new Microsoft.Maps.Point(0, 25)
+                });
+            }
+        }
+
+        function hideInfobox(e) {
+            pinInfobox.setOptions({ visible: false });
+        }
+    </script>
+</head>
+<body onload="loadMapScenario();">
+    <div id="myMap"></div>
+    <div>
+        <select id="stateList">
+            <option value="NotSelected">Select a state</option>
+        </select>
+    </div>
+    <div id="storeListContainer">
+        <ul id="storeList"></ul>
+    </div>
+</body>
+</html>

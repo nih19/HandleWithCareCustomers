@@ -1,0 +1,2 @@
+D:\Source\Repos\Hackathon2018\HandleWithCare\HandleWithCare\obj\Debug\HandleWithCare.csprojAssemblyReference.cache
+D:\Source\Repos\Hackathon2018\HandleWithCare\HandleWithCare\obj\Debug\HandleWithCare.csproj.CoreCompileInputs.cache
